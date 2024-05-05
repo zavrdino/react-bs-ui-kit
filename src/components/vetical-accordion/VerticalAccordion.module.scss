@@ -1,0 +1,19 @@
+.accordion {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.accordionItem {
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.activeAccordionItem, .accordionItem:hover {
+    @extend .accordionItem;
+    background-color: whitesmoke;
+    border-bottom: solid 1px #99999951
+}

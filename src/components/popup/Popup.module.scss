@@ -1,0 +1,91 @@
+$headerHeight: 45px;
+$footerHeight: 44px;
+$bodyDifference: calc($headerHeight + $footerHeight);
+
+$minPopupVerticalMargin: 40px;
+
+$maxPopupHeight: calc(100vh - ($minPopupVerticalMargin));
+$maxBodyHeight: calc($maxPopupHeight - calc($headerHeight + $footerHeight));
+
+$animationDuration: 150ms;
+
+@keyframes fadeIn {
+    from { background-color: transparent }
+    to { background-color: var(--popup-shadow-color) !important }
+}
+
+@keyframes slideFadeIn {
+    from { opacity: .3;
+        margin-top: -150px;
+    }
+    to { opacity: 1;
+        margin-top: 0; 
+    }
+}
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 997;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+}
+
+.shadow {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 998;
+    display: flex;
+    cursor: default;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn $animationDuration linear 0ms 1;
+}
+
+
+.popup {
+    max-width: calc(100vw - 30px) !important;
+    animation: slideFadeIn $animationDuration linear 0ms 1;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 999;
+    box-shadow: #000 0 4px 8px 0px;
+}
+
+.header {
+    background: var(--popup-header-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 3px 10px;
+    width: 100%;
+    min-height: $headerHeight;
+    color: #eee;
+    font-size: var(--popup-title-font-size);
+    border-bottom: solid 1px #ffffff24
+}
+
+.body {
+    overflow-y: auto;
+    height: 100%;
+    max-height: calc($maxBodyHeight - $minPopupVerticalMargin);
+    width: 100%;
+    background: var(--popup-bg-color);
+}
+
+.footer {
+    background: var(--popup-footer-bg-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    align-items: center;
+    min-height: $footerHeight;
+}

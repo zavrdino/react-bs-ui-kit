@@ -1,0 +1,13 @@
+@keyframes blink {
+    from {
+        opacity: 0%,
+    }
+    to {
+        opacity: 100%,
+    }
+}
+
+.liveIndicator {
+    animation: blink 1000ms ease-out 0ms infinite;
+    border-radius: 50%;
+}

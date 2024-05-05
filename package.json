@@ -1,0 +1,49 @@
+{
+  "name": "react-bs-ui-kit",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "author": "ZAVR, Dino",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "rollup --config=rollup.config.js --watch",
+    "build": "rollup --config=rollup.config.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.20",
+    "@types/react-datepicker": "^6.2.0",
+    "lodash-es": "^4.17.21",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.28.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^4.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@floating-ui/core": "^1.6.0",
+    "@floating-ui/react": "^0.26.12",
+    "@mui/x-date-pickers": "^6.19.4",
+    "@popperjs/core": "^2.11.8",
+    "lodash-es": "^4.17.21",
+    "material-icons": "^1.13.9",
+    "postcss": "^8.2.15",
+    "react-datepicker": "^6.6.0",
+    "react-toastify": "^10.0.5",
+    "react-virtualized": "^9.22.5",
+    "react-zoom-pan-pinch": "^3.4.4"
+  },
+  "peerDependencies": {
+    "bootstrap": "^5.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
