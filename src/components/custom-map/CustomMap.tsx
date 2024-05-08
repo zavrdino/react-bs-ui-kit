@@ -1,8 +1,6 @@
 import *  as _ from 'lodash-es';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { IMapPlace, Place } from './components/place/Place'
-import { ZoomPanPinch } from './components/zoom-pan-pinch/ZoomPanPinch'
-import { Grid } from './components/grid/Grid'
+import { IMapPlace, Place, ZoomPanPinch, Grid } from './'
 
 interface IComponentProps {
     height?: number,

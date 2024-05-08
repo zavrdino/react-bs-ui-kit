@@ -1,1 +1,5 @@
-export * from './CustomMap.tsx'
+export * from './CustomMap'
+export * from './components/grid/Grid'
+export * from './components/place/Place'
+export * from './components/zoom-pan-pinch/Controls'
+export * from './components/zoom-pan-pinch/ZoomPanPinch'
