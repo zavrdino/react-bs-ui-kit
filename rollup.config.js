@@ -12,13 +12,17 @@ export default {
       file: 'dist/index.js',
       format: 'esm',
       exports: 'named',
-      sourcemap: false
+      sourcemap: false,
     }
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
-    commonjs(),
+    resolve({
+      mainFields: ['module', 'jsnext:main', 'main'],
+    }),
+    commonjs({
+      include: '/node_modules/',
+    }),
     typescript(),
     terser(),
     postcss({
