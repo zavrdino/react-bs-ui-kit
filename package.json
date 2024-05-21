@@ -1,6 +1,6 @@
 {
   "name": "react-bs-ui-kit",
-  "version": "1.4.2",
+  "version": "1.4.4",
   "type": "module",
   "description": "",
   "author": "ZAVR, Dino",
@@ -23,6 +23,7 @@
     "@types/react-datepicker": "^6.2.0",
     "lodash-es": "^4.17.21",
     "node-sass": "^9.0.0",
+    "postcss-preset-env": "^9.5.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.28.0",

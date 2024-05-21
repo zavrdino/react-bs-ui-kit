@@ -75,7 +75,7 @@ $animationDuration: 150ms;
 .body {
     overflow-y: auto;
     height: 100%;
-    max-height: calc($maxBodyHeight - $minPopupVerticalMargin);
+    max-height: calc(100vh - 80px);
     width: 100%;
     background: var(--popup-bg-color);
 }

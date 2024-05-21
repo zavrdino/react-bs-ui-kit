@@ -2,6 +2,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcssPresetEnv from 'postcss-preset-env';
 import postcss from 'rollup-plugin-postcss';
 import terser from '@rollup/plugin-terser';
 
@@ -27,9 +28,19 @@ export default {
     terser(),
     postcss({
       extract: true,
-      modules: true,
+      modules: {
+        generateScopedName: '[name]__[local]___[hash:base64:5]'
+      },
       use: ['sass'],
-      minimize: true
+      minimize: true,
+      plugins: [
+        postcssPresetEnv({
+          stage: 0,
+          features: {
+            'custom-properties': true,
+          },
+        }),
+      ],
     }),
   ],
   external: ['react', 'react-dom'],
