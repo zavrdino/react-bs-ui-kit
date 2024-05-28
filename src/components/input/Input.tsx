@@ -11,7 +11,7 @@ export interface ISelectOptions {
 }
 
 export interface IInputSpecs {
-    type?: 'boolean' | 'textarea' | 'select' | 'number' | 'search' | 'decimal' | 'int' | 'float' | 'text' | 'email' | 'date' | 'password' | 'eval' | 'tel' | 'url' | 'time',
+    type?: 'boolean' | 'textarea' | 'select' | 'number' | 'search' | 'decimal' | 'int' | 'float' | 'text' | 'email' | 'date' | 'password' | 'eval' | 'tel' | 'url' | 'time' | 'color',
     key?: string,
     caption?: string,
     default?: string | number,
@@ -160,6 +160,20 @@ export const Input = ({
                     maxLength={specs?.maxLength || INPUT_MAX_LENGTH}
                     onChange={handleChange as any}
                     rows={specs?.rows}
+                />
+            );
+        } else if (specs?.type === 'color') {
+            return (
+                <input
+                    ref={inputRef}
+                    data-testid={testId}
+                    type='color'
+                    onFocus={onFocus}
+                    className={`form-control form-control-select form-control-${size}`}
+                    value={value || ''}
+                    autoComplete={autocomplete || 'on'}
+                    disabled={disabled}
+                    onChange={handleChange as any}
                 />
             );
         } else if (specs?.type === 'select') {
