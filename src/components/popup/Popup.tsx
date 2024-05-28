@@ -65,7 +65,7 @@ export const Popup = ({ children, visible, size, onKeyPress, title, onClose, sha
     }
 
     const minHeightStyle = (minHeight ? minHeight : 'auto')
-    const maxHeightStyle = (maxHeight ? maxHeight : undefined)
+    const maxHeightStyle = (maxHeight ? maxHeight : 'calc(100vh - 100px)')
 
     return (
         <BaseComponent>
