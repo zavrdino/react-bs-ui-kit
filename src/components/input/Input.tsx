@@ -179,7 +179,7 @@ export const Input = ({
                         disabled={disabled}
                         onChange={handleChange as any}
                     />
-                    <span>
+                    <span className='ms-2'>
                         <TouchableOpacity
                             onClick={onReset}
                         >
