@@ -4,6 +4,7 @@ import { Popup } from '../popup/Popup';
 import { Colors } from '../../enum/Colors';
 import { BaseComponent } from '../BaseComponent';
 import { TimeInput } from './components/time-input/TimeInput';
+import { TouchableOpacity } from '../touchable-opacity';
 
 export interface ISelectOptions {
    caption: string,
@@ -35,7 +36,8 @@ export interface IComponentProps {
     readOnly?: boolean,
     icon?: string,
     labelColor?: Colors,
-    autocomplete?: string
+    autocomplete?: string,
+    onReset?: any,
     onEnterKeyPressed?(): void
     onEscKeyPressed?(): void
     placeholder?: string
@@ -85,6 +87,7 @@ export const Input = ({
     readOnly,
     disabled,
     placeholder,
+    onReset,
     autocomplete,
     onEscKeyPressed,
     onEnterKeyPressed,
@@ -164,17 +167,26 @@ export const Input = ({
             );
         } else if (specs?.type === 'color') {
             return (
-                <input
-                    ref={inputRef}
-                    data-testid={testId}
-                    type='color'
-                    onFocus={onFocus}
-                    className={`form-control form-control-select form-control-${size}`}
-                    value={value || ''}
-                    autoComplete={autocomplete || 'on'}
-                    disabled={disabled}
-                    onChange={handleChange as any}
-                />
+                <div className='w-100 d-flex align-items-center'>
+                    <input
+                        ref={inputRef}
+                        data-testid={testId}
+                        type='color'
+                        onFocus={onFocus}
+                        className={`w-100 form-control form-control-select form-control-${size}`}
+                        value={value || ''}
+                        autoComplete={autocomplete || 'on'}
+                        disabled={disabled}
+                        onChange={handleChange as any}
+                    />
+                    <span>
+                        <TouchableOpacity
+                            onClick={onReset}
+                        >
+                            <MaterialIcon icon='close' size='tiniest' />
+                        </TouchableOpacity>
+                    </span>
+                </div>
             );
         } else if (specs?.type === 'select') {
             return (
