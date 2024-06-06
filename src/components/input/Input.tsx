@@ -462,6 +462,7 @@ export const Input = ({
                     disabled={disabled}
                     testId={testId || ''}
                     placeholder={placeholder}
+                    minutesStep={specs?.step}
                     handleChange={(newValue) => onChange(name, newValue)}
                 />
             );

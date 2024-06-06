@@ -10,14 +10,29 @@ interface IComponentProps {
     max: any,
     disabled?: boolean,
     readOnly?: boolean,
+    minutesStep?: number,
     autoComplete?: boolean,
     placeholder?: string,
     handleChange?(newValue: any): any,
 }
 
-export const TimeInput = ({ name, size, testId, value, disabled, handleChange, onFocus, placeholder, readOnly, min, max }: IComponentProps) => {
-    const minuteOptions = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+export const TimeInput = ({ name, size, testId, value, disabled, minutesStep, handleChange, onFocus, placeholder, readOnly, min, max }: IComponentProps) => {
     const hourOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    
+    const minuteOptions = useMemo(() => {
+        let options = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+
+        if (minutesStep && minutesStep >= 1) {
+            let i = 0
+            const steppedOptions = []
+            for (const i = 0; i <= 59; i + minutesStep) {
+                steppedOptions.push(i)
+            }
+            options = steppedOptions
+        }
+
+        return options
+    }, [minutesStep])
 
     const timeRange = useMemo(() => {
         let minHours = `${min || '00:00'}`.split(':')[0]
