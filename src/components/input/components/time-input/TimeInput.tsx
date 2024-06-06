@@ -23,11 +23,8 @@ export const TimeInput = ({ name, size, testId, value, disabled, minutesStep, ha
         let options = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
 
         if (minutesStep && minutesStep >= 1) {
-            let i = 0
             const steppedOptions = []
-            for (const i = 0; i <= 59; i + minutesStep) {
-                steppedOptions.push(i)
-            }
+            for (let i = 0; i <= 59; i += minutesStep) steppedOptions.push(i)
             options = steppedOptions
         }
 
