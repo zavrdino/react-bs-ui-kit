@@ -13,6 +13,7 @@ export interface IFooterButton {
     color?: Colors,
     loading?: boolean,
     testId?: string,
+    id?: string,
     onClick?(): any
 }
 
@@ -113,6 +114,7 @@ export const Popup = ({ children, visible, size, onKeyPress, title, onClose, sha
                                         <span className='px-2' key={button.caption}>
                                             <Button
                                                 size='sm'
+                                                id={button?.id}
                                                 testId={button?.testId}
                                                 caption={button.caption}
                                                 loading={button.loading}

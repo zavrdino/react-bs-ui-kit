@@ -9,6 +9,7 @@ export interface IComponentProps {
     color?: Colors,
     fontColor?: Colors,
     testId?: string,
+    id?: string,
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
     caption?: any,
     disabled?: boolean,
@@ -22,11 +23,12 @@ export interface IComponentProps {
     outline?: boolean
 }
 
-export const Button = ({ color=Colors.PrimaryGradient, fontColor=Colors.Light, testId, size, caption, onClick, nowrap, disabled, loading, w100, bold, icon, iconSize, outline }: IComponentProps)=> {
+export const Button = ({ color=Colors.PrimaryGradient, id, fontColor=Colors.Light, testId, size, caption, onClick, nowrap, disabled, loading, w100, bold, icon, iconSize, outline }: IComponentProps)=> {
     return (
         <BaseComponent>
             <span
                 data-testid={testId}
+                id={id}
                 onClickCapture={(onClick && !disabled && !loading) ? onClick : null}
                 className={[
                     nowrap ? 'text-nowrap' : '',
