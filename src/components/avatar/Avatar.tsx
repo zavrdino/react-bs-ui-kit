@@ -1,14 +1,32 @@
 import React from 'react'
 import { BaseComponent } from '../BaseComponent'
+import { useToggler } from '../../hooks'
+import { Popup } from '../popup'
 
 interface IComponentProps {
     size: number,
     name?: string,
     imagePath: string,
-    singleInitial?: boolean
+    singleInitial?: boolean,
+    viewUserPopup?: {
+        size?: 'sm' | 'md' | 'lg' | 'auto',
+        content: any
+    }
 }
 
-export const Avatar = ({ size, name = '', imagePath, singleInitial = false }: IComponentProps) => {
+export const Avatar = ({ size, name = '', imagePath, singleInitial = false, viewUserPopup }: IComponentProps) => {
+    const popupToggler = useToggler()
+
+    const popup = (
+        <Popup
+            onClose={popupToggler.toggle}
+            visible={popupToggler.value}
+            size={viewUserPopup?.size || 'auto'}
+        >
+            <>{viewUserPopup?.content}</>
+        </Popup>
+    )
+
     if (!imagePath) {
 
         const parts = `${name || ''}`.split(' ')
@@ -18,7 +36,11 @@ export const Avatar = ({ size, name = '', imagePath, singleInitial = false }: IC
 
         return (
             <BaseComponent>
-                <span>
+                {viewUserPopup?.content && (popup)}
+                <span
+                    onClickCapture={viewUserPopup?.content ? popupToggler.toggle : undefined}
+                    className={`${viewUserPopup?.content ? 'pointer' : ''}`}
+                >
                     <div
                         title={name}
                         className='rounded-circle d-flex bg-whitesmoke border justify-content-center align-items-center'
@@ -38,8 +60,9 @@ export const Avatar = ({ size, name = '', imagePath, singleInitial = false }: IC
 
     return (
         <BaseComponent>
+            {viewUserPopup?.content && (popup)}
             <img
-                className='rounded-circle border'
+                className={`rounded-circle border ${viewUserPopup?.content ? 'pointer' : ''}`}
                 src={imagePath}
                 height={size}
                 width={size}
