@@ -20,6 +20,7 @@ export const Avatar = ({ size, name = '', imagePath, singleInitial = false, view
     const popup = (
         <Popup
             onClose={popupToggler.toggle}
+            hideHeader={true}
             visible={popupToggler.value}
             size={viewUserPopup?.size || 'auto'}
         >
@@ -62,6 +63,7 @@ export const Avatar = ({ size, name = '', imagePath, singleInitial = false, view
         <BaseComponent>
             {viewUserPopup?.content && (popup)}
             <img
+                onClickCapture={viewUserPopup?.content ? popupToggler.toggle : undefined}
                 className={`rounded-circle border ${viewUserPopup?.content ? 'pointer' : ''}`}
                 src={imagePath}
                 height={size}
