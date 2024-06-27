@@ -24,7 +24,7 @@ export const TabSelector = ({ items }: IComponentProps) => {
                             onClickCapture={item.onSelectItem}
                         >
                             <span
-                                className={`nav-link px-2 py-0 pointer ${item?.isSelected ? 'active  text-primary' : ''}`}
+                                className={`nav-link px-2 py-0 pointer ${item?.isSelected ? 'active fw-bolder text-primary' : ''}`}
                                 aria-current="page"
                             >
                                 {item.caption}
