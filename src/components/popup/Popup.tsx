@@ -85,7 +85,7 @@ export const Popup = ({ children, visible, size, onKeyPress, title, onClose, sha
                             !hideHeader && (
                                 <div className={style.header}>
                                     <div className='w-100 d-flex justify-content-between align-items-center'>
-                                        <span>
+                                        <span className='d-flex align-items-center'>
                                             { loading && <span className='px-2'><Spinner color='light' size='sm' /></span> }
                                             { iconSrc && <img alt="" src={iconSrc} width={24} height={24} />}
                                             { icon && <span className="material-icons mx-2">{icon}</span> }
