@@ -30,7 +30,7 @@ export const Speedometer = ({ size = 200, value = 0, strokeWidth = 15, fontSize 
                     cy={size / 2}
                     cx={(size - strokeWidth) / 2}
                     r={(size - strokeWidth) / 2}
-                    style={{ color }}
+                    style={{ stroke: color }}
                     strokeWidth={strokeWidth}
                     strokeDasharray={`${(Math.PI * size / 2) * value} ${Math.PI * size / 2}`}
                     transform={`rotate(180 ${size / 2} ${size / 2})`}
