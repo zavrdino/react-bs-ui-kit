@@ -5,11 +5,12 @@ import { BaseComponent } from '../BaseComponent';
 interface IComponentProps {
     size?: number,
     value?: number,
+    strokeWidth?: number,
+    fontSize?: string,
+    color?: string
 }
 
-export const Speedometer = ({ size = 200, value = 0 }: IComponentProps) => {
-    const  strokeWidth = 15;
-
+export const Speedometer = ({ size = 200, value = 0, strokeWidth = 15, fontSize = '2rem', color = 'var(--bs-primary)' }: IComponentProps) => {
     return (
         <BaseComponent>
             <svg width={size + 10} height={size / 2}>
@@ -20,7 +21,7 @@ export const Speedometer = ({ size = 200, value = 0 }: IComponentProps) => {
                     strokeWidth={strokeWidth}
                     transform={`rotate(180 ${size / 2} ${size / 2})`}
                     strokeDasharray={`${Math.PI * size / 2} ${Math.PI * size / 2}`}
-                    stroke="whitesmoke"
+                    stroke="#ccc"
                     fill="none"
                 />
 
@@ -29,14 +30,19 @@ export const Speedometer = ({ size = 200, value = 0 }: IComponentProps) => {
                     cy={size / 2}
                     cx={(size - strokeWidth) / 2}
                     r={(size - strokeWidth) / 2}
-                    style={{ stroke: 'var(--bs-primary)' }}
+                    style={{ color }}
                     strokeWidth={strokeWidth}
                     strokeDasharray={`${(Math.PI * size / 2) * value} ${Math.PI * size / 2}`}
                     transform={`rotate(180 ${size / 2} ${size / 2})`}
                     className=''
                 />
 
-                <text y={size / 2 - 20} width={size} x={(size - strokeWidth) / 2} fontSize="2em">
+                <text
+                    y={size / 2 - 20}
+                    width={size}
+                    x={(size - (strokeWidth * 2)) / 2}
+                    style={{ fontSize,  }}
+                >
                     {isNaN(value) ? 0.000 : (value * 100).toFixed(1)}%
                 </text>
             </svg>
