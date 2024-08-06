@@ -1,0 +1,177 @@
+$topbarHeight: 70px;
+$desktopNavbarWidth: 250px;
+$appNavbarWidth: 250px;
+
+@keyframes mobileMenuAnimation {
+    from { width: 0 }
+    to { width: $appNavbarWidth }
+}
+
+
+.screen {
+    color: var(--dashboard-font-color);
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    min-width: 100vw;
+    display:flex;
+    left: 0;
+    top: 0;
+}
+
+.navbar {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 8;
+    display: block;
+    position: fixed;
+    width: $desktopNavbarWidth;
+    border-radius: 0 10px 10px 0;
+    box-shadow: #00000070 0px 5px 5px 0px;
+    animation: mobileMenuAnimation 150ms ease 0ms;
+
+    .navLogoArea {
+        height: $topbarHeight;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 1px #ffffff17;
+    }
+
+    .menuItems {
+        height: calc(100vh - ($topbarHeight));
+        overflow-y: auto;
+        padding: 10px;
+        width: 100%;
+        color: var(--bs-dark);
+
+        .menuItem {
+            cursor: pointer;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            margin: 10px 0;
+            border-radius: 10px;
+
+            .menuCaption {
+                color: var(--menu-item-font-color);
+                margin-left: 10px
+            }
+        }
+
+        .activeMenuItem {
+            @extend .menuItem;
+
+            .menuCaption {
+                color: var(--active-menu-item-font-color);
+                margin-left: 10px
+            }
+        }
+    }
+}
+
+.content {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.topBar {
+    box-shadow: #00000070 0px 2px 2px 0px;
+    height: $topbarHeight;
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 8
+}
+
+.main {
+    height: auto;
+    width: 100%;
+    margin-top: calc($topbarHeight + 20px);
+    position: relative;
+}
+
+.smNavShadow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #33333389;
+    z-index: 8
+}
+
+@media screen and (min-width: 768px) {
+    .smNavShadow {
+        display: none;
+    }
+
+    .navbar {
+        height: 100vh;
+        display: block;
+        position: absolute;
+        width: $desktopNavbarWidth;
+
+        .navLogoArea {
+            height: $topbarHeight;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menuItems {
+            height: calc(100vh - $topbarHeight);
+            padding: 10px;
+            overflow-y: auto;
+            width: 100%;
+
+            .menuItem {
+                width: 100%;
+                height: 50px;
+                display: flex;
+                padding: 20px;
+                align-items: center;
+
+                &:hover {
+                    transition: all 300ms ease-in-out;
+                }
+            }
+
+            
+        }
+    }
+
+    .content {
+        width: calc(100% - $desktopNavbarWidth);
+        height: calc(100vh - 20px);
+        overflow-y: auto;
+        margin: 0;
+    }
+
+    .topBar {
+        top: 0px;
+        right: 10px;
+        left: calc(10px + $desktopNavbarWidth);
+        height: $topbarHeight;
+        display: flex;
+        width: calc(100% - calc($desktopNavbarWidth + 20px));
+        align-items: center;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+}
