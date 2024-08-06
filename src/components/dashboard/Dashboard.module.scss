@@ -1,12 +1,7 @@
-$topbarHeight: 70px;
-$desktopNavbarWidth: 250px;
-$appNavbarWidth: 250px;
-
 @keyframes mobileMenuAnimation {
     from { width: 0 }
-    to { width: $appNavbarWidth }
+    to { width: 250px }
 }
-
 
 .screen {
     color: var(--dashboard-font-color);
@@ -27,13 +22,13 @@ $appNavbarWidth: 250px;
     z-index: 8;
     display: block;
     position: fixed;
-    width: $desktopNavbarWidth;
+    width: 250px;
     border-radius: 0 10px 10px 0;
     box-shadow: #00000070 0px 5px 5px 0px;
     animation: mobileMenuAnimation 150ms ease 0ms;
 
     .navLogoArea {
-        height: $topbarHeight;
+        height: 70px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -42,7 +37,7 @@ $appNavbarWidth: 250px;
     }
 
     .menuItems {
-        height: calc(100vh - ($topbarHeight));
+        height: calc(100vh - (70px));
         overflow-y: auto;
         padding: 10px;
         width: 100%;
@@ -84,7 +79,7 @@ $appNavbarWidth: 250px;
 
 .topBar {
     box-shadow: #00000070 0px 2px 2px 0px;
-    height: $topbarHeight;
+    height: 70px;
     border-radius: 0 0 10px 10px;
     width: 100%;
     margin: 0;
@@ -98,7 +93,7 @@ $appNavbarWidth: 250px;
 .main {
     height: auto;
     width: 100%;
-    margin-top: calc($topbarHeight + 20px);
+    margin-top: calc(70px + 20px);
     position: relative;
 }
 
@@ -121,10 +116,10 @@ $appNavbarWidth: 250px;
         height: 100vh;
         display: block;
         position: absolute;
-        width: $desktopNavbarWidth;
+        width: 250px;
 
         .navLogoArea {
-            height: $topbarHeight;
+            height: 70px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -132,7 +127,7 @@ $appNavbarWidth: 250px;
         }
 
         .menuItems {
-            height: calc(100vh - $topbarHeight);
+            height: calc(100vh - 70px);
             padding: 10px;
             overflow-y: auto;
             width: 100%;
@@ -154,7 +149,7 @@ $appNavbarWidth: 250px;
     }
 
     .content {
-        width: calc(100% - $desktopNavbarWidth);
+        width: calc(100% - 250px);
         height: calc(100vh - 20px);
         overflow-y: auto;
         margin: 0;
@@ -163,10 +158,10 @@ $appNavbarWidth: 250px;
     .topBar {
         top: 0px;
         right: 10px;
-        left: calc(10px + $desktopNavbarWidth);
-        height: $topbarHeight;
+        left: calc(10px + 250px);
+        height: 70px;
         display: flex;
-        width: calc(100% - calc($desktopNavbarWidth + 20px));
+        width: calc(100% - calc(250px + 20px));
         align-items: center;
     }
 
