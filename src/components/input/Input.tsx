@@ -19,6 +19,7 @@ export interface IInputSpecs {
     description?: string,
     maxLength?: number,
     options?: ISelectOptions[],
+    resetIcon?: string,
     min?: any,
     max?: any,
     rows?: number,
@@ -183,7 +184,7 @@ export const Input = ({
                         <TouchableOpacity
                             onClick={onReset}
                         >
-                            <MaterialIcon icon='close' size='tiniest' />
+                            <MaterialIcon icon={specs?.resetIcon || 'close'} size='tiniest' />
                         </TouchableOpacity>
                     </span>
                 </div>
