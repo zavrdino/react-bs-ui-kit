@@ -20,6 +20,7 @@ export interface IInputSpecs {
     maxLength?: number,
     options?: ISelectOptions[],
     resetIcon?: string,
+    resetIconTitle?: string,
     min?: any,
     max?: any,
     rows?: number,
@@ -180,7 +181,7 @@ export const Input = ({
                         disabled={disabled}
                         onChange={handleChange as any}
                     />
-                    <span className='ms-2'>
+                    <span className='ms-2' title={specs?.resetIconTitle}>
                         <TouchableOpacity
                             onClick={onReset}
                         >
