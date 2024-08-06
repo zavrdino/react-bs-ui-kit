@@ -25,3 +25,4 @@ export { TouchableOpacity } from "./components/touchable-opacity";
 export { VerticalAccordion } from "./components/vetical-accordion";
 export { LiveIndicator } from "./components/live-indicator";
 export { TabSelector } from "./components/tab-selector";
+export { Dashboard } from "./components/dashboard";
