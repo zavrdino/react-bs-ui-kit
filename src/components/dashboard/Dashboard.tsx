@@ -8,6 +8,7 @@ import { TouchableOpacity } from '../touchable-opacity';
 interface IMenuItem {
     title: string,
     path: string,
+    basePath: string,
     icon: string,
     exact: boolean,
 }
@@ -50,8 +51,8 @@ export const Dashboard = ({ menuItems, pathname, children, onClickMenuItem, left
                     <div className={defaultStyle.menuItems}>
                         {menuItems
                             .map((menuItem) => {
-                                const isActive = menuItem.exact && menuItem.path === pathname
-                                    || !menuItem.exact && pathname?.startsWith(menuItem?.path)
+                                const isActive = menuItem.exact && menuItem.basePath === pathname
+                                    || !menuItem.exact && pathname?.startsWith(menuItem?.basePath)
 
                                 const onClick = () => {
                                     if (windowSize.width < 768) menuToggler.toggle()
