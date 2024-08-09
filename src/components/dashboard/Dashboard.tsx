@@ -27,6 +27,7 @@ interface IComponentProps {
         menuItemBgColor: string,
         activeMenuItemBgColor: string,
         menuItemFontColor: string,
+        menuItemIconColor: string,
         activeMenuItemFontColor: string,
     }
 }
@@ -73,7 +74,11 @@ export const Dashboard = ({ menuItems, pathname, children, onClickMenuItem, left
                                         >
                                             <>
                                                 <span className='d-block d-flex align-items-center'>
-                                                    <MaterialIcon icon={menuItem.icon} color={isActive ? 'light' : 'dark'} size='small' />
+                                                    <MaterialIcon
+                                                        icon={menuItem.icon}
+                                                        color={isActive ? (style?.menuItemIconColor || 'primary') : (style?.menuItemIconColor || 'light')}
+                                                        size='small'
+                                                    />
                                                 </span>
                                                 <span
                                                     style={{
