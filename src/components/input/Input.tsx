@@ -1,4 +1,4 @@
-import React, { useState, useRef, EventHandler } from 'react';
+import React, { useState, useRef, EventHandler, useMemo } from 'react';
 import { MaterialIcon } from '../material-icon/MaterialIcon';
 import { Popup } from '../popup/Popup';
 import { Colors } from '../../enum/Colors';
@@ -21,6 +21,7 @@ export interface IInputSpecs {
     options?: ISelectOptions[],
     resetIcon?: string,
     resetIconTitle?: string,
+    datalist?: any[],
     min?: any,
     max?: any,
     rows?: number,
@@ -114,6 +115,8 @@ export const Input = ({
         })
     }
 
+    const dataListId = useMemo(() => `dataList${Math.random() * 9999999}`, [])
+
     const onKeyPress = (e: any) => {
         if (inputRef?.current) inputRef?.current?.scrollIntoView({
             behaviour: 'smooth',
@@ -171,6 +174,7 @@ export const Input = ({
             return (
                 <div className='w-100 d-flex align-items-center'>
                     <input
+                        list={dataListId}
                         ref={inputRef}
                         data-testid={testId}
                         type='color'
@@ -212,6 +216,7 @@ export const Input = ({
         } else if (specs?.type === 'number') {
             return (
                 <input
+                    list={dataListId}
                     ref={inputRef}
                     data-testid={testId}
                     onFocus={onFocus}
@@ -235,6 +240,7 @@ export const Input = ({
         } else if (specs?.type === 'decimal') {
             return (
                 <input
+                    list={dataListId}
                     data-testid={testId}
                     className={`form-control form-control-${size}`}
                     value={value || ''}
@@ -258,6 +264,7 @@ export const Input = ({
         } else if (specs?.type === 'int') {
             return (
                 <input
+                    list={dataListId}
                     data-testid={testId}
                     className={`form-control form-control-${size}`}
                     value={value || ''}
@@ -281,6 +288,7 @@ export const Input = ({
         } else if (specs?.type === 'float') {
             return (
                 <input
+                    list={dataListId}
                     data-testid={testId}
                     className={`form-control form-control-${size}`}
                     value={value || ''}
@@ -303,6 +311,7 @@ export const Input = ({
         } else if (specs?.type === 'text') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="text"
                     data-testid={testId}
@@ -322,6 +331,7 @@ export const Input = ({
         } else if (specs?.type === 'search') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="search"
                     data-testid={testId}
@@ -341,6 +351,7 @@ export const Input = ({
         } else if (specs?.type === 'url') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="url"
                     data-testid={testId}
@@ -360,6 +371,7 @@ export const Input = ({
         } else if (specs?.type === 'email') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="email"
                     data-testid={testId}
@@ -380,6 +392,7 @@ export const Input = ({
         } else if (specs?.type === 'date') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="date"
                     data-testid={testId}
@@ -399,6 +412,7 @@ export const Input = ({
         } else if (specs?.type === 'password') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="password"
                     data-testid={testId}
@@ -418,6 +432,7 @@ export const Input = ({
         } else if (specs?.type === 'eval') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="text"
                     data-testid={testId}
@@ -437,6 +452,7 @@ export const Input = ({
         } else if (specs?.type === 'tel') {
             return (
                 <input
+                    list={dataListId}
                     className={`form-control form-control-${size}`}
                     type="tel"
                     data-testid={testId}
@@ -473,6 +489,7 @@ export const Input = ({
         } else {
             return (
                 <input
+                    list={dataListId}
                     data-testid={testId}
                     className={`form-control form-control-${size}`}
                     value={value || ''}
@@ -505,6 +522,14 @@ export const Input = ({
                 >
                     <div className='w-100 px-2 py-3 text-center'>{specs?.description}</div>
                 </Popup>
+
+                {specs?.datalist && (
+                    <datalist id={dataListId}>
+                        {specs?.datalist?.map((value) => (
+                            <option value={value} />
+                        ))}
+                    </datalist>
+                )}
 
                 <div className={`w-100 form-group form-group-${specs?.type}`}>
                     {(specs?.caption !== undefined || specs?.key) && (
