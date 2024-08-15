@@ -138,7 +138,7 @@ export const Input = ({
                     ref={inputRef}
                     data-testid={testId}
                     onFocus={onFocus}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value ? 'true' : 'false'}
                     disabled={disabled}
                     onChange={(e) => {
@@ -161,7 +161,7 @@ export const Input = ({
                     ref={inputRef}
                     data-testid={testId}
                     onFocus={onFocus}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value || ''}
                     autoComplete={autocomplete || 'on'}
                     disabled={disabled}
@@ -200,7 +200,7 @@ export const Input = ({
                     ref={inputRef}
                     data-testid={testId}
                     onFocus={onFocus}
-                    className={`form-control form-control-select form-control-${size}`}
+                    className={`px-1 form-control form-control-select form-control-${size}`}
                     value={value || ''}
                     autoComplete={autocomplete || 'on'}
                     disabled={disabled}
@@ -220,7 +220,7 @@ export const Input = ({
                     ref={inputRef}
                     data-testid={testId}
                     onFocus={onFocus}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value || ''}
                     name={name}
                     type="number"
@@ -242,7 +242,7 @@ export const Input = ({
                 <input
                     list={dataListId}
                     data-testid={testId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value || ''}
                     type="number"
                     ref={inputRef}
@@ -266,7 +266,7 @@ export const Input = ({
                 <input
                     list={dataListId}
                     data-testid={testId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value || ''}
                     ref={inputRef}
                     onFocus={onFocus}
@@ -290,7 +290,7 @@ export const Input = ({
                 <input
                     list={dataListId}
                     data-testid={testId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value || ''}
                     ref={inputRef}
                     onFocus={onFocus}
@@ -312,7 +312,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="text"
                     data-testid={testId}
                     ref={inputRef}
@@ -332,7 +332,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="search"
                     data-testid={testId}
                     ref={inputRef}
@@ -352,7 +352,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="url"
                     data-testid={testId}
                     ref={inputRef}
@@ -372,7 +372,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="email"
                     data-testid={testId}
                     ref={inputRef}
@@ -393,7 +393,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="date"
                     data-testid={testId}
                     ref={inputRef}
@@ -413,7 +413,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="password"
                     data-testid={testId}
                     ref={inputRef}
@@ -433,7 +433,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="text"
                     data-testid={testId}
                     name={name}
@@ -453,7 +453,7 @@ export const Input = ({
             return (
                 <input
                     list={dataListId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     type="tel"
                     data-testid={testId}
                     name={name}
@@ -491,7 +491,7 @@ export const Input = ({
                 <input
                     list={dataListId}
                     data-testid={testId}
-                    className={`form-control form-control-${size}`}
+                    className={`px-1 form-control form-control-${size}`}
                     value={value || ''}
                     ref={inputRef}
                     name={name}
