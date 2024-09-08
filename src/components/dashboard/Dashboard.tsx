@@ -11,6 +11,7 @@ interface IMenuItem {
     basePath: string,
     icon: string,
     exact: boolean,
+    fontSize?: number
 }
 
 interface IComponentProps {
@@ -83,7 +84,8 @@ export const Dashboard = ({ menuItems, pathname, children, onClickMenuItem, left
                                                 </span>
                                                 <span
                                                     style={{
-                                                        color: isActive ? (style.activeMenuItemFontColor || '#fff') : (style.menuItemFontColor || '#eee')
+                                                        color: isActive ? (style.activeMenuItemFontColor || '#fff') : (style.menuItemFontColor || '#eee'),
+                                                        fontSize: menuItem?.fontSize
                                                     }}
                                                     className={defaultStyle.menuCaption}
                                                 >
