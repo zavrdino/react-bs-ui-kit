@@ -92,6 +92,7 @@
 
 .main {
     height: calc(100vh - 110px);
+    overflow-y: auto;
     width: 100%;
     top: 90px;
     left: 0px;
