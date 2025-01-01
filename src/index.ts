@@ -7,7 +7,7 @@ export { Badge } from "./components/badge";
 export { Button } from "./components/button";
 export { Card } from "./components/card";
 export { Checkbox } from "./components/checkbox";
-export { Input } from "./components/input";
+export { Input, IInputSpecs, ISelectOptions } from "./components/input";
 export { Col } from "./components/col";
 export { Container } from "./components/container";
 export { Popover } from "./components/popover";
