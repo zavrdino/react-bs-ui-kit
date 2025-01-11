@@ -53,7 +53,14 @@ export const Dashboard = ({ menuItems, pathname, children, onClickLogo, onClickM
 
                 <nav className={defaultStyle.navbar} style={{ background: style?.menuBgColor }}>
                     <div className={defaultStyle.navLogoArea}>
-                        <img onClickCapture={baseOnClickLogo} src={appLogoLocation} alt='' width={120} height={38} />
+                        <img
+                            className={onClickLogo ? 'pointer' : ''}
+                            onClickCapture={baseOnClickLogo}
+                            src={appLogoLocation}
+                            alt=''
+                            width={120}
+                            height={38}
+                        />
                     </div>
 
                     <div className={defaultStyle.menuItems}>
