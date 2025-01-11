@@ -22,6 +22,7 @@ interface IComponentProps {
     menuItems: IMenuItem[],
     appLogoLocation: string,
     onClickMenuItem(menuItem: IMenuItem): any,
+    onClickLogo?(): any,
     style: {
         bgColor: string,
         menuBgColor: string,
@@ -34,9 +35,13 @@ interface IComponentProps {
     }
 }
 
-export const Dashboard = ({ menuItems, pathname, children, onClickMenuItem, leftHeaderComponent, rightHeaderComponent, appLogoLocation, style }: IComponentProps) => {
+export const Dashboard = ({ menuItems, pathname, children, onClickLogo, onClickMenuItem, leftHeaderComponent, rightHeaderComponent, appLogoLocation, style }: IComponentProps) => {
     const menuToggler = useToggler(false);
     const windowSize = useWindowSize()
+
+    const baseOnClickLogo = () => {
+        if (onClickLogo) onClickLogo() 
+    }
 
     return (
         <div className={defaultStyle.screen} style={{ background: style?.bgColor }}>
@@ -48,7 +53,7 @@ export const Dashboard = ({ menuItems, pathname, children, onClickMenuItem, left
 
                 <nav className={defaultStyle.navbar} style={{ background: style?.menuBgColor }}>
                     <div className={defaultStyle.navLogoArea}>
-                        <img src={appLogoLocation} alt='' width={120} height={38} />
+                        <img onClickCapture={baseOnClickLogo} src={appLogoLocation} alt='' width={120} height={38} />
                     </div>
 
                     <div className={defaultStyle.menuItems}>
